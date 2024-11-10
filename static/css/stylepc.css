@@ -1,0 +1,75 @@
+body{
+    padding: 0;
+}
+h1{
+    color: rgb(0, 191, 255);
+    text-align: center;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #75a5e0;
+    padding: 10px 0;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    text-align: center;
+}
+.navbar a:hover {
+    background-color: #57a1fc;
+    border-radius: 15px;
+}
+.about{
+    text-align: center;
+}
+.port{
+    text-align: center;
+}
+.ph{
+    margin-top: 10px;
+}
+h2{
+    color: rgb(158, 88, 255);
+    text-align: center;
+}
+.con{
+    text-align: center;
+}
+#map{
+    margin-left: 13%;
+    margin-top: 50px;
+}
+/* Анимация появления */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.lin{
+    margin-right: 800px;
+}
+.button{
+    color: white;
+    background-color: rgb(148, 115, 246);
+    text-decoration: none;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+.button:hover{
+    background-color: rgb(134, 95, 250);
+}
+.contact-info {
+    display: flex; /* Используем flexbox для выравнивания в одну строку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin-left: 15%;
+}
+h5{
+    color: white;
+}
