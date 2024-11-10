@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snelle photo</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <script>
+        function redirectToDevicePage() {
+            const userAgent = navigator.userAgent;
+
+            if (/android/i.test(userAgent) || /iPhone|iPad|iPod/i.test(userAgent)) {
+                // Если устройство - смартфон
+                window.location.href = "/m"; // Перенаправление на страницу для смартфонов
+            } else {
+                // Если устройство - ПК
+                window.location.href = "/pc"; // Перенаправление на страницу для ПК
+            }
+        }
+
+        // Выполняем функцию при загрузке страницы
+        window.onload = redirectToDevicePage;
+    </script>
+</head>
+<body>
+    <h1>Пожалуйста, подождите...</h1>
+</body>
+</html>
