@@ -1,0 +1,138 @@
+body{
+    padding: 0;
+}
+h1{
+    color: rgb(0, 191, 255);
+    text-align: center;
+}
+.about{
+    text-align: center;
+}
+.port{
+    text-align: center;
+}
+.ph{
+    margin-top: 10px;
+}
+h2{
+    color: rgb(158, 88, 255);
+    text-align: center;
+}
+.con{
+    text-align: center;
+}
+#map{
+    margin-left: 13%;
+    margin-top: 50px;
+}
+/* Анимация появления */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.lin{
+    margin-right: 800px;
+}
+.button{
+    color: white;
+    background-color: rgb(148, 115, 246);
+    text-decoration: none;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+.button:hover{
+    background-color: rgb(134, 95, 250);
+}
+.contact-info {
+    display: flex; /* Используем flexbox для выравнивания в одну строку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin-left: 15%;
+}
+h5{
+    color: white;
+}
+.hamburger {
+    position: fixed; /* Фиксированное положение */
+    top: 20px; /* Отступ сверху */
+    right: 20px; /* Отступ справа */
+    cursor: pointer; /* Указатель при наведении */
+    z-index: 1001; /* Убедитесь, что кнопка выше других элементов */
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    margin: 20px;
+    transition: transform 0.3s;
+}
+
+.bar {
+    height: 4px;
+    width: 100%;
+    background-color: black;
+    margin: 3px 0;
+}
+
+.menu {
+    display: flex; /* Измените на flex, чтобы использовать opacity */
+    opacity: 0; /* Начальное состояние - скрыто */
+    transform: translateY(-100%); /* Начальная позиция - выше экрана */
+    transition: opacity 1s ease, transform 1s ease; /* Плавный переход для opacity и transform */
+    position: fixed; /* Изменено на fixed, чтобы оставаться на месте */
+    top: 0; /* Позиция меню */
+    left: 0;
+    right: 0;
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 50% 50%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Вертикальное выравнивание */
+    visibility: hidden; /* Скрыто по умолчанию */
+    z-index: 1000; /* Убедитесь, что меню ниже гамбургера */
+}
+
+.menu a {
+    padding: 15px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+}
+
+.menu a:hover {
+    background-color: #759bfbe4; /* Цвет при наведении */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    z-index: 1; /* Убедитесь, что кнопка закрытия выше других элементов */
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Первая полоска поворачивается и смещается */
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Вторая полоска исчезает */
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Третья полоска поворачивается и смещается */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
