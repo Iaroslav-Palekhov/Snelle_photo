@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление фотографиями</title>
+    <style>
+        .photo-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .photo-item img {
+            max-width: 100px; /* Ограничиваем размер изображения */
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Управление фотографиями</h1>
+<form action="" method="POST">
+    <input type="text" name="image_url" placeholder="Введите URL изображения" required>
+    <button type="submit">Добавить фотографию</button>
+</form>
+<div>
+    <h2>Список фотографий</h2>
+    <ul>
+        {% for photo in photos %}
+        <li class="photo-item">
+            <img src="{{ photo }}" alt="Фотография">
+            <div>
+                <a href="{{ url_for('delete_photo', index=loop.index0) }}">Удалить</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<a href="{{ url_for('admin') }}">Вернуться в админку</a>
+</body>
+</html>

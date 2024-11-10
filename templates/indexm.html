@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snelle photo</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script src="static/js/app.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('static/img/bgm.png'); /* Замените на URL вашей картинки */
+            background-size: cover; /* Заполняет весь экран */
+            background-position: center; /* Центрирует изображение */
+            background-repeat: repeat; /* Не повторяет изображение */
+        }
+    </style>
+    <script type="text/javascript">
+        var map;
+
+        DG.then(function () {
+            map = DG.map('map', {
+                center: [53.617933, 55.962895],
+                zoom: 20
+            });
+
+            DG.marker([53.617933, 55.962895]).addTo(map).bindPopup('Вы кликнули по мне!');
+        });
+    </script>
+    <div class="header">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <div class="menu" id="menu">
+        <a href="#about">О нас</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#cen">Цены</a>
+        <a href="#contact">Контакты</a>
+    </div>
+    <div class="about fade-in" id="about">
+        <h5>.</h5>
+        <h5>.</h5>
+        <p>Фотостудия "Апрель"- интерьерная студия со светлым залом, естественным и импульсным светом, профессиональным оборудованием,</p> 
+        <p>большими окнами, различными декорациями, однотонными фонами. Теплая и уютная атмосфера.</p>
+            <p>Площадь 70 кв.м.</p>
+            <p>Высота потолков 4м.</p>
+            <p>Студия работает с 9.00 до 22.00 по предварительной записи.</p>
+    </div>
+    <div class="port fade-in" id="portfolio">
+        <h1>Мои работы</h1>
+        {% for photo in photos %}
+        <img class="ph fade-in" width="300px" src="{{ photo }}" alt="Фотография">
+        {% endfor %}
+    </div>
+    <div class="cen fade-in" id="cen">
+        <h2>Цены</h2>
+        <ul>
+            {% for service in services %}
+            <li>{{ service.name }} - {{ service.price }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="con fade-in" id="contact">
+        <h2>Контакты</h2>
+        <div class="contact-info fade-in">
+            <img width="50" src="static/img/phone.png" alt="">
+            <h5>.....</h5>
+            <p>+79173772825</p>
+            <h5>.....</h5>
+            <a class="button" href="tel:+1234567890">Позвонить</a>
+        </div>
+        <div class="contact-info fade-in">
+            <img width="50" src="static/img/vk.png" alt="">
+            <h5>.....</h5>
+            <p>@aprilphotos</p>
+            <h5>.....</h5>
+            <a class="button" href="https://vk.com/aprilphotos">Написать</a>
+        </div>
+        <div class="contact-info fade-in">
+            <img width="50" src="static/img/vk.png" alt="">
+            <h5>.....</h5>
+            <p>@snelle</p>
+            <h5>.....</h5>
+            <a class="button" href="https://vk.com/snelle">Написать</a>
+        </div>
+        <div class="contact-info fade-in">
+            <img width="50" src="static/img/insta.png" alt="">
+            <h5>.....</h5>
+            <p>@snelle_photo</p>
+            <h5>.....</h5>
+            <a class="button" href="https://www.instagram.com/snelle_photo?igsh=MWR1MjNta2F6ZjVldg==">Написать</a>
+        </div>
+        <div id="map" style="width:300px; height:200px"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('.fade-in');
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+    
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>    
+</body>
+</html>

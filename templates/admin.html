@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+</head>
+<body>
+<form action="" method="POST">
+    <input type="text" name="service_name" placeholder="Введите услугу" required>
+    <input type="text" name="price" placeholder="Введите цену" required>
+    <button type="submit">Добавить</button>
+</form>
+<div>
+    <h2>Список услуг</h2>
+    <ul>
+        {% for service in services %}
+        <li class="service-item">
+            <strong>{{ service.name }}</strong> - {{ service.price }}
+            <a href="{{ url_for('delete_service', index=loop.index0) }}">Удалить</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<a href="{{ url_for('manage_photos') }}">Управление фотографиями</a>
+</body>
+</html>
